@@ -14,7 +14,7 @@ export const getEpailearenEpaimahaiak = async () => {
             method: 'POST',
             mode: 'cors',
             headers: {
-                'ngrok-skip-browser-warning': 'true',
+              
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),

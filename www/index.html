@@ -13,11 +13,12 @@
 <script src="cordova.js"></script>
 <body>
   <script type = "module">
-    import {login, toggleLogin} from './js/app.js';
+    import {login, toggleLogin, checkEgoera} from './js/app.js';
+    document.addEventListener('DOMContentLoaded', checkEgoera);
     document.getElementById('authForm').addEventListener('submit', login);
     document.getElementById('toggle-button').addEventListener('click', toggleLogin);
   </script>
-  <div id = "logDiv" class = "login-container">
+  <div id = "logDiv" class = "login-container" hidden>
     <h1 id="formTitle">Saioa hasi</h1>
     <form id="authForm">
 

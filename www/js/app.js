@@ -20,17 +20,19 @@ export function toggleLogin() {
 }
 
 export async function login(event) {
+    const mezua = document.getElementById('warning');
+    if (mezua) {
+        mezua.remove();
+    }
     event.preventDefault();
     const authForm = document.getElementById('authForm');
     if (isLogin) {
         const verify = await u.verifyUser({
-            headers: {
-                'ngrok-skip-browser-warning': 'true'
-            },
             mode: 'cors'
         });
         if (!verify) {
             const mezua = document.createElement('h1');
+            mezua.id = "warning";
             mezua.textContent = ` ${document.getElementById('username').value} erabiltzailea ez dago erregistratuta edo pasahitza ez da zuzena`;
             authForm.reset();
             logDiv.appendChild(mezua);
@@ -41,12 +43,13 @@ export async function login(event) {
     } else {
         const user = await u.findUser({
             headers: {
-                'ngrok-skip-browser-warning': 'true'
+              
             },
             mode: 'cors'
         });
         if (user) {
             const mezua = document.createElement('h1');
+            mezua.id = "warning";
             mezua.textContent = ` ${document.getElementById('username').value} izenarekin erabiltzailea existitzen da`;
             authForm.reset();
             logDiv.appendChild(mezua);
@@ -54,7 +57,7 @@ export async function login(event) {
         } else {
             await u.createNewUser({
                 headers: {
-                    'ngrok-skip-browser-warning': 'true'
+                  
                 },
                 mode: 'cors'
             });
@@ -66,9 +69,6 @@ export async function login(event) {
 
 async function bideratu() {
     const role = await u.getRole({
-        headers: {
-            'ngrok-skip-browser-warning': 'true'
-        },
         mode: 'cors'
     });
     const logDiv = document.getElementById('logDiv');
@@ -90,9 +90,52 @@ async function bideratu() {
 
 export const logout = async () => {
     localStorage.removeItem('token');
-    window.location.href = '../index.html';
+    window.location.href = './index.html';
 };
 
+
+
+export const checkEgoera = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        document.getElementById('logDiv').hidden = false;
+        return;
+    }
+    const decodedToken = jwt_decode(token);
+    const username = decodedToken.username;
+    const logDiv = document.getElementById('logDiv');
+     const baimenduta = await u.getRole(username);
+        if(baimenduta !== 'referee'){
+           logDiv.innerHTML = '';
+            const mezua = document.createElement('h1');
+            mezua.textContent = `${username}-k ez du hemen egoteko baimenik`;
+            localStorage.removeItem('token');
+            logDiv.appendChild(mezua);
+            const button  = document.createElement('button');
+            button.textContent = 'saioa hasi';
+           
+            button.addEventListener('click', () => {
+                window.location.href = '../index.html';
+            });
+            logDiv.appendChild(button);
+            return;
+        }
+    const agurra = document.getElementById('formTitle');
+    agurra.textContent = `Kaixo, ${username}`;
+    document.getElementById('authForm').remove();
+    document.getElementById('toggle-button').remove();
+    const button = document.createElement('button');
+    button.textContent = 'Saioa itxi';
+    button.addEventListener('click', logout);
+    const button2 = document.createElement('button');
+    button2.textContent = 'Epaitu';
+    button2.addEventListener('click', () => {
+        window.location.href = './html/epaitu.html';
+    });
+    document.getElementById('logDiv').appendChild(button);
+    document.getElementById('logDiv').appendChild(button2);
+    document.getElementById('logDiv').hidden = false;
+};
 
 
 

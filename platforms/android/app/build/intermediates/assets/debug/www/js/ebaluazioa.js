@@ -65,7 +65,7 @@ export const createNewEbaluazioa = async (event) => {
             method: 'POST',
             mode: 'cors',
             headers: {
-                'ngrok-skip-browser-warning': 'true',
+              
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
@@ -97,7 +97,7 @@ export const getEpailearenEbaluazioakFaseka = async (event) => {
             method: 'GET',
             mode: 'cors',
             headers: {
-                'ngrok-skip-browser-warning': 'true',
+              
                 'Content-Type': 'application/json',
             },
            

@@ -10,7 +10,7 @@ export const getFasearenEzaugarriak = async () => {
             method: 'GET',
             mode: 'cors',
             headers: {
-                'ngrok-skip-browser-warning': 'true',
+              
                 'Content-Type': 'application/json',
             },
         });
@@ -33,7 +33,7 @@ export const getFaseAktiboa = async () => {
             method: 'GET',
             mode: 'cors',
             headers: {
-                'ngrok-skip-browser-warning': 'true',
+              
                 'Content-Type': 'application/json',
             },
         });

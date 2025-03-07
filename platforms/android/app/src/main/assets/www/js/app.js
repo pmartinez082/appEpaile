@@ -25,7 +25,7 @@ export async function login(event) {
     if (isLogin) {
         const verify = await u.verifyUser({
             headers: {
-                'ngrok-skip-browser-warning': 'true'
+              
             },
             mode: 'cors'
         });
@@ -41,7 +41,7 @@ export async function login(event) {
     } else {
         const user = await u.findUser({
             headers: {
-                'ngrok-skip-browser-warning': 'true'
+              
             },
             mode: 'cors'
         });
@@ -54,7 +54,7 @@ export async function login(event) {
         } else {
             await u.createNewUser({
                 headers: {
-                    'ngrok-skip-browser-warning': 'true'
+                  
                 },
                 mode: 'cors'
             });
@@ -66,9 +66,7 @@ export async function login(event) {
 
 async function bideratu() {
     const role = await u.getRole({
-        headers: {
-            'ngrok-skip-browser-warning': 'true'
-        },
+      
         mode: 'cors'
     });
     const logDiv = document.getElementById('logDiv');

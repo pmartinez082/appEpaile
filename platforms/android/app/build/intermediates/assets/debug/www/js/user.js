@@ -7,7 +7,7 @@ export const getEpaileak = async () => {
             method: 'GET',
             mode: 'cors',
             headers: {
-                'ngrok-skip-browser-warning': 'true',
+              
                 'Content-Type': 'application/json',
             },
             
@@ -35,7 +35,7 @@ export const verifyUser = async () => {
             method: 'POST',
             mode: 'cors',
             headers: {
-                'ngrok-skip-browser-warning': 'true',
+              
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ username, password }),
@@ -60,7 +60,7 @@ export const findUser = async () => {
             method: 'POST',
             mode: 'cors',
             headers: {
-                'ngrok-skip-browser-warning': 'true',
+              
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ username }),
@@ -89,7 +89,7 @@ export const getRole = async (user) => {
             method: 'POST',
             mode: 'cors',
             headers: {
-                'ngrok-skip-browser-warning': 'true',
+              
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ username }),
@@ -115,7 +115,7 @@ export const createNewUser = async () => {
             method: 'POST',
             mode: 'cors',
             headers: {
-                'ngrok-skip-browser-warning': 'true',
+              
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ username, email, password, role }),
