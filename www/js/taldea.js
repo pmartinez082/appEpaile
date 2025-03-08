@@ -12,6 +12,7 @@ export const getBaloratuGabekoTaldeak = async () => {
             headers: {
               
                 'Content-Type': 'application/json',
+'aux': 'true',
             },
         });
         if (response.ok) {

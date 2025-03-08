@@ -67,6 +67,7 @@ export const createNewEbaluazioa = async (event) => {
             headers: {
               
                 'Content-Type': 'application/json',
+'aux': 'true',
             },
             body: JSON.stringify(data),
         });
@@ -99,6 +100,7 @@ export const getEpailearenEbaluazioakFaseka = async (event) => {
             headers: {
               
                 'Content-Type': 'application/json',
+'aux': 'true',
             },
            
         });

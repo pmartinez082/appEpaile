@@ -12,6 +12,7 @@ export const getFasearenEzaugarriak = async () => {
             headers: {
               
                 'Content-Type': 'application/json',
+'aux': 'true',
             },
         });
         if (response.ok) {
@@ -35,6 +36,7 @@ export const getFaseAktiboa = async () => {
             headers: {
               
                 'Content-Type': 'application/json',
+'aux': 'true',
             },
         });
         if (response.ok) {

@@ -9,6 +9,7 @@ export const getEpaileak = async () => {
             headers: {
               
                 'Content-Type': 'application/json',
+'aux': 'true',
             },
             
         });
@@ -37,6 +38,7 @@ export const verifyUser = async () => {
             headers: {
               
                 'Content-Type': 'application/json',
+'aux': 'true',
             },
             body: JSON.stringify({ username, password }),
         });
@@ -62,6 +64,7 @@ export const findUser = async () => {
             headers: {
               
                 'Content-Type': 'application/json',
+'aux': 'true',
             },
             body: JSON.stringify({ username }),
         });
@@ -91,6 +94,7 @@ export const getRole = async (user) => {
             headers: {
               
                 'Content-Type': 'application/json',
+'aux': 'true',
             },
             body: JSON.stringify({ username }),
         });
@@ -117,6 +121,7 @@ export const createNewUser = async () => {
             headers: {
               
                 'Content-Type': 'application/json',
+'aux': 'true',
             },
             body: JSON.stringify({ username, email, password, role }),
         });

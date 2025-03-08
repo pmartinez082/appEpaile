@@ -16,6 +16,7 @@ export const getEpailearenEpaimahaiak = async () => {
             headers: {
               
                 'Content-Type': 'application/json',
+'aux': 'true',
             },
             body: JSON.stringify(data),
         });
